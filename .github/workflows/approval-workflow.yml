@@ -1,0 +1,13 @@
+name: Homols Awesome Approval Workflow
+on: pull_request_review
+
+jobs:
+  labelWhenApproved:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: pullreminders/label-when-approved-action@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          APPROVALS: "1"
+          ADD_LABEL: "HomolApproved"
